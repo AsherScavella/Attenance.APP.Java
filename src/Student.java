@@ -68,15 +68,23 @@ public class Student {
     } // end of setSeat method
 
 
+
     public void setName(String name) throws Exception {
-
-        name = name.trim();
-
-        if (name.isBlank())
+        if (name == null || name. isBlank())
             throw new Exception("Student name can not be blank");
-        else
-            this.name = name;
+        this.name = name.trim();
     } // end of setName method
+
+    public void displayAttendance() {
+        System.out.println(this);
+        System.out.print("OnTime" + getOnTime() + " ");
+        System.out.print("Late=" + getLate() + " ");
+        System.out.print("Excused=" + getExcused() + " ");
+        System.out.print("Unexcused=" + getUnexcused() );
+    }
+
+
+
 
 
     public void updateAttendance(int status) throws Exception {
