@@ -17,99 +17,89 @@ public class Student {
     }// end of default constructor
 
 
-    public Student (int seat) {
+    public Student (int seat) throws Exception {
         this();
-        this.seat = seat;
-        //TODO: call the setSeat
+       setSeat(seat);
     }
 
-    public Student(int seat, String name){
-        this.seat = seat;
-        this.name = name;
+    public Student(int seat, String name) throws Exception {
+        this();
+        setSeat(seat);
+        setName(name);
         //TODO: call the setSeat
         //TODO: call the setName
         // end of overload constructor
+    }
 
 
+    public String getName() {
+        return name;
     }
 
     public int getSeat() {
         return seat;
     }
 
-    public void setSeat(int seat) {
-        if (seat < 1) {
-            throw new IllegalArgumentException("seat must be greater than 0");
-        }
-        else {
-            this.seat = seat;
-        }
-    }
-
     public int getOnTime() {
         return onTime;
     }
 
-    public void setOnTime(int onTime) {
-        this.onTime = onTime;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        if (name == null || name.isEmpty()) {
-            throw new IllegalArgumentException("name cannot be null or empty");
-        }else {
-            this.name = name;
-        }
-    }
 
     public int getLate() {
         return late;
-    }
-
-    public void setLate(int late) {
-        this.late = late;
     }
 
     public int getExcused() {
         return excused;
     }
 
-    public void setExcused(int excused) {
-        this.excused = excused;
-    }
 
     public int getUnexcused() {
         return unexcused;
     }
 
-    public void setUnexcused(int unexcused) {
-        this.unexcused = unexcused;
-    }
 
-    public void updateAttendance(int status){
-        if (status <= 4 && status >= 1) {
 
-            if (status == 1) {
-                this.onTime++;
-            }
-            else if (status == 2) {
-                this.late++;
-            }
-            else if (status == 3) {
-                this.excused++;
-            }
-            else if (status == 4) {
-                this.unexcused++;
-            }
+    public void setSeat(int seat) throws Exception {
+        if (seat >= 0 && seat <= 55)
+            this.seat = seat;
+        else
+            throw new Exception("Seat can be less than 1");
+    } // end of setSeat method
+
+
+    public void setName(String name) throws Exception {
+
+        name = name.trim();
+
+        if (name.isBlank())
+            throw new Exception("Student name can not be blank");
+        else
+            this.name = name;
+    } // end of setName method
+
+
+    public void updateAttendance(int status) throws Exception {
+
+        switch (status) {
+            case 1:
+                onTime++;
+                break;
+            case 2:
+                late++;
+                break;
+            case 3:
+                excused++;
+                break;
+            case 4:
+                unexcused++;
+                break;
+            default:
+                throw new Exception("Invalid attendance status = " + status);
         }
-        else{
-            throw new IllegalArgumentException("Invalid attendance status: " + status);
-        }
-    }
+    } // end of updateStats method
+
+
 
     @Override
     public String toString(){
