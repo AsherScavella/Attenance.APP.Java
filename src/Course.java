@@ -35,15 +35,66 @@ public class Course {
 
     public void addStudent(String name, int seat) throws Exception {
         Student student = getStudent(seat);
-        if(student == null) {
+        if (student == null) {
             allStudents.add(new Student(seat, name));
         } else {
             throw new Exception("Seat #" + seat + " already assigned to " + student.getName() + "!");
         }
     }
-    
-    @Override
-    public String toString(){
-        return  name;
+
+    public int getOnTime() {
+        int totalOnTime = 0;
+
+        for (Student player : allStudents) {
+            totalOnTime += player.getOnTime();
+        }
+
+        return totalOnTime;
     }
-}
+
+    public int getLate() {
+        int totalLate = 0;
+
+        for (Student player : allStudents) {
+            totalLate += player.getLate();
+        }
+
+        return totalLate;
+    }
+
+
+        public int getExcuse() {
+            int totalExcuse = 0;
+
+            for (Student player : allStudents) {
+                totalExcuse += player.getOnTime();
+            }
+
+            return totalExcuse;
+        }
+
+    public int getUnExcuse() {
+        int totalUnExcuse = 0;
+
+        for (Student player : allStudents) {
+            totalUnExcuse += player.getOnTime();
+        }
+
+        return totalUnExcuse;
+    }
+
+    public void displaySummary() {
+        System.out.println( name + " OnTime=" + getOnTime() + " Late=" + getLate()
+       + " Excused=" + getExcuse()
+        + " Unexcused=" + getUnExcuse());
+    }
+
+
+    @Override
+        public String toString () {
+            return name;
+        }
+
+    }
+
+

@@ -84,9 +84,6 @@ public class Student {
     }
 
 
-
-
-
     public void updateAttendance(int status) throws Exception {
 
         switch (status) {
@@ -106,6 +103,20 @@ public class Student {
                 throw new Exception("Invalid attendance status = " + status);
         }
     } // end of updateStats method
+
+
+
+    @Override
+    public boolean equals(Object object) {
+
+        // This uses pattern matching with instanceof,
+        // which was introduced in Java 16.
+        // It combines the type check with a variable declaration
+        if(!(object instanceof Student other))
+            return false;
+
+        return this.seat == other.getSeat();
+    } // end of override equals
 
 
 
