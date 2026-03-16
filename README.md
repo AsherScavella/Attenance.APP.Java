@@ -55,8 +55,6 @@ Each student has:
 The Student class updates attendance counts and returns attendance information when the Course class generates reports.
 ### **Course.java**
 
-### Course.java
-
 The Course class represents a course section that contains multiple students.
 
 This class manages the list of students in the course and keeps track of their attendance records. It stores the course name and uses an ArrayList to store Student objects.
@@ -111,3 +109,9 @@ This class works together with the Course and Student classes to manage and upda
 ## **🧪 Example Run/Testing**
 
 Example program output:
+
+### Results 2026-03-16 093331.png
+
+This screenshot shows the program output after attendance has been recorded for both the 9:00 am and 10:00 am classes. It displays the attendance summary and the detailed report for each student.
+
+![Attendance Output](screenshots/Results 2026-03-16 093331.png)
