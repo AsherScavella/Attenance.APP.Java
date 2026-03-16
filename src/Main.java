@@ -1,82 +1,71 @@
+import java.util.Scanner;
+
 public class Main {
-
-    // test invalid jersey
     public static void main(String[] args) {
-        /*
-    }
-        try {
-            Student s1 = new Student(-1);
-            System.out.println(s1);
-        } catch (
-                Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-        // test invalid name
-        try {
-            Student s2 = new Student(1, "Bob");
-            System.out.println(s2);
-        } catch (
-                Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-        // test a valid student
-        try {
-            Student s3 = new Student(1, "BOb");
-            System.out.println(s3);
-        } catch (
-                Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-        // test a updateAttendance
-        try {
-            Student s4 = new Student(1, "BOb");
-            s4.updateAttendance(1);
-            s4.updateAttendance(1);
-
-            s4.updateAttendance(2);
-            s4.updateAttendance(2);
-            s4.updateAttendance(2);
-
-
-            s4.displayAttendance();
-            s4.updateAttendance(4);
-
-
-            s4.updateAttendance(5);
-        } catch (
-                Exception e) {
-            System.out.println(e.getMessage());
-        }
+        Scanner kb = new Scanner(System.in);
 
         try {
-            Student s5 = new Student(1, "Bob");
-            Student s6 = new Student(1, "Sue");
-            System.out.println(s5.equals(s6));
+            // Section 1
+            Course c1 = new Course();
+            System.out.print("Enter Section 1's course name: ");
+            c1.setName(kb.nextLine());
+
+            while (true) {
+                System.out.print("\nEnter " + c1.getName() + " student's name or 'q' to quit: ");
+                String studentName = kb.nextLine();
+
+                if (studentName.equalsIgnoreCase("q")) {
+                    break;
+                }
+
+                System.out.print("Enter " + studentName + " seat number: ");
+                int seat = Integer.parseInt(kb.nextLine());
+                try {
+                    c1.addStudent(studentName, seat);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                    System.out.println("Unable to add student!");
+                }
+            }
+
+            // Section 2
+            Course c2 = new Course();
+            System.out.print("\nEnter Section 2's course name: ");
+            c2.setName(kb.nextLine());
+
+            while (true) {
+                System.out.print("\nEnter " + c2.getName() + " student's name or 'q' to quit: ");
+                String studentName = kb.nextLine();
+
+                if (studentName.equalsIgnoreCase("q")) {
+                    break;
+                }
+
+                System.out.print("Enter " + studentName + " seat number: ");
+                int seat = Integer.parseInt(kb.nextLine());
+
+                try {
+                    c2.addStudent(studentName, seat);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                    System.out.println("Unable to add student!");
+                }
+            }
+
+            // Show reports
+            System.out.println();
+            c1.displaySummary();
+            c1.displayDetailReport();
+
+            System.out.println();
+            c2.displaySummary();
+            c2.displayDetailReport();
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        */
 
-
-        {
-            try {
-                Course c1 = new Course();
-                c1.setName("Section 9:00 am");
-                System.out.println(c1);
-
-                c1.addStudent("Bob",1);
-                c1.addStudent("Sue",2);
-
-             c1.displaySummary();
-
-
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        }
+        kb.close();
     }
 }
 
