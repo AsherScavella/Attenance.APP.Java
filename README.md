@@ -107,9 +107,11 @@ This class works together with the Course and Student classes to manage and upda
 ---
 
 ## **🧪 Example Run/Testing**
-![image alt](https://github.com/AsherScavella/Attenance.APP.Java/blob/0bd3f9419ea118a6475cf80c0de8e88737c9f4d1/Results%202026-03-16%20093331.png)
+
 
 ![image alt](https://github.com/AsherScavella/Attenance.APP.Java/blob/f293565db09ce9d7f56cd9aa12ca33772dc63d09/A1%202026-03-16%20102200.png)
+
+![image alt](https://github.com/AsherScavella/Attenance.APP.Java/blob/0bd3f9419ea118a6475cf80c0de8e88737c9f4d1/Results%202026-03-16%20093331.png)
 Example program output:
 
 ### Results 2026-03-16 093331.png
